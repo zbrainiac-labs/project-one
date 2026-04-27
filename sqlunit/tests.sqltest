@@ -1,0 +1,5 @@
+# SQL Validation Tests for project-one
+# Format: description | sql | expected
+#
+ONEO_RAW_TB_WH_SIZE_RECOMMENDATION table exists | SELECT CASE WHEN COUNT(*) > 0 THEN 'true' ELSE 'false' END AS result FROM {{DATABASE}}.INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = '{{SCHEMA}}' AND TABLE_NAME = 'ONEO_RAW_TB_WH_SIZE_RECOMMENDATION'; | true
+Warehouse recommendations loaded | SELECT CASE WHEN COUNT(*) = 6 THEN 'true' ELSE 'false' END AS result FROM {{DATABASE}}.{{SCHEMA}}.ONEO_RAW_TB_WH_SIZE_RECOMMENDATION; | true

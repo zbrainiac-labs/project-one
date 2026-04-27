@@ -1,0 +1,21 @@
+manifest_version: 2
+type: DCM_PROJECT
+default_target: 'DEV'
+
+targets:
+  DEV:
+    account_identifier: SFSEEUROPE-ZS28104
+    project_name: 'PROJECT_DEV.ONE_RAW_V001.PROJECT_ONE'
+    project_owner: CICD
+    templating_config: 'DEV'
+
+templating:
+  defaults:
+    db: 'PROJECT_DEV'
+    schema: 'ONE_RAW_V001'
+    wh: 'MD_TEST_WH'
+  configurations:
+    DEV:
+      db: 'PROJECT_DEV'
+      schema: 'ONE_RAW_V001'
+      wh: 'MD_TEST_WH'
