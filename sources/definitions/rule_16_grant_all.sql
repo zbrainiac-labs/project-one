@@ -1,0 +1,15 @@
+-- =============================================================================
+-- RULE 16: Disallow GRANT ALL PRIVILEGES
+-- Regex: (?i)^(?!\s*--)\s*GRANT\s+ALL\s+(PRIVILEGES\s+)?ON\b
+-- =============================================================================
+
+-- POSITIVE TESTS (compliant - must NOT trigger rule)
+GRANT SELECT ON TABLE IOTI_RAW_TB_DATA TO ROLE ANALYST;
+GRANT SELECT, INSERT ON TABLE IOTI_RAW_TB_DATA TO ROLE ANALYST;
+GRANT INSERT, UPDATE ON TABLE IOTI_RAW_TB_DATA TO ROLE ETL_ROLE;
+GRANT USAGE ON SCHEMA IOT_RAW_V001 TO ROLE CICD;
+
+-- NEGATIVE TESTS (non-compliant - MUST trigger rule)
+GRANT ALL PRIVILEGES ON DATABASE DATAOPS TO ROLE POWER_USER;
+GRANT ALL ON SCHEMA IOT_RAW_V001 TO ROLE ADMIN;
+GRANT ALL PRIVILEGES ON TABLE IOTI_RAW_TB_DATA TO ROLE BAD_ROLE;
