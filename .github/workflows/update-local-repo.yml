@@ -9,9 +9,9 @@ jobs:
   pipeline:
     uses: zbrainiac-labs/DataOpsBackbone/.github/workflows/dataops-pipeline.yml@main
     with:
-      SOURCE_DATABASE: PROJECT_DEV
-      SOURCE_SCHEMA: ONE_RAW_V001
-      DCM_PROJECT_IDENTIFIER: PROJECT_DEV.ONE_RAW_V001.PROJECT_ONE
+      SOURCE_DATABASE: ONE_DEV
+      SOURCE_SCHEMA: ONE_DCM
+      DCM_PROJECT_IDENTIFIER: ONE_DEV.ONE_DCM.PROJECT_ONE
       DCM_TARGET: DEV
       CLONE_PER_BUILD: true
     secrets: inherit
