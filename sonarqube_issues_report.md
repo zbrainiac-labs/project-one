@@ -1,7 +1,7 @@
 # SonarQube Issues Report — project-one
 
-**Total Issues: 8283** | **Total Rules: 93** (47 txt + 20 SQLCC + 26 SQLFluff)  
-**Scan Date: 2026-05-09 (Run #31 — all 40 txt: rules fixed and verified)**
+**Total Issues: 8313** | **Total Rules: 93+6** (47 txt + 20 SQLCC + 26 SQLFluff + 6 multiline)  
+**Scan Date: 2026-05-09 (Run #34 — all 40 txt: rules + 6 multiline rules active and verified)**
 
 ---
 
@@ -9,10 +9,10 @@
 
 | Category | Rules Available | Rules Triggered | Rules Tested | Issues |
 |----------|---------------|-----------------|--------------|--------|
-| SonarQube Text Plugin (txt:) | 47 | 26 | 37 | 6892 |
-| SQL Code Checker (SQLCC:) | 20 | 12 | 13 | 87 |
-| SQLFluff (external) | 26 | 26 | 26 | 757 |
-| **Total** | **93** | **64** | **76** | **7736** |
+| SonarQube Text Plugin (txt:) | 47 | 40 | 37 | 7460 |
+| SQL Code Checker (SQLCC:) | 20 | 12 | 13 | 91 |
+| SQLFluff (external) | 26 | 26 | 26 | 762 |
+| **Total** | **93** | **78** | **76** | **8313** |
 
 ---
 
@@ -31,8 +31,8 @@
 | 9 | txt:JOIN_without_ON_clause | JOIN without ON clause | MAJOR | 9 | ✓ `rule_30` |
 | 10 | txt:Implicit_alias_missing_AS | Implicit alias (missing AS keyword) | MINOR | 303 | ✓ `rule_31` |
 | 11 | txt:Unnecessary_ELSE_NULL | Unnecessary ELSE NULL in CASE | MINOR | 11 | ✓ `rule_32` |
-| 12 | txt:Dynamic_Table_must_have_TARGET_LAG_multiline | Dynamic Tables must specify TARGET_LAG (multiline) | CRITICAL | 0 | ✓ `rule_25` |
-| 13 | txt:DEFINE_must_have_COMMENT_multiline | DEFINE must include COMMENT (multiline) | MAJOR | 0 | ✓ `rule_22` |
+| 12 | txt:Dynamic_Table_must_have_TARGET_LAG_multiline | Dynamic Tables must specify TARGET_LAG (multiline) | CRITICAL | 15 | ✓ `rule_25` |
+| 13 | txt:DEFINE_must_have_COMMENT_multiline | DEFINE must include COMMENT (multiline) | MAJOR | 13 | ✓ `rule_38` |
 | 14 | txt:Disallow_ALTER_TABLE_DROP_COLUMN | Disallow ALTER TABLE DROP COLUMN (breaking change) | CRITICAL | 0 | ✓ `rule_33` |
 | 15 | txt:Disallow_TRUNCATE_without_safeguard | Disallow bare TRUNCATE TABLE (data loss risk) | CRITICAL | 0 | ✓ `rule_34` |
 | 16 | txt:Task_must_be_SERVERLESS | Tasks should use SERVERLESS (no WAREHOUSE clause) | MAJOR | 0 | ✓ `rule_35` |
@@ -168,7 +168,7 @@
 - SonarQube currently has **93 rules** installed (47 txt + 20 SQLCC + 26 SQLFluff)
 - The difference: 7 additional txt rules (template rules + newer additions like Stream/Semantic View naming, ALTER TABLE DROP COLUMN, TRUNCATE, Task SERVERLESS), 1 extra SQLCC rule (C030), 3 extra SQLFluff rules (LT04, RF05, CV06)
 - Rules 43-47 (txt) are template rule types from the Community Text Plugin — not custom DataOps rules
-- Only **64 of 93 rules** triggered issues on this project's codebase
+- Only **78 of 93 rules** triggered issues on this project's codebase (remaining 15 are SQL Server-specific or template rules)
 - **37 of 42 custom txt rules** have dedicated positive/negative test coverage in this repo (88%)
 - **13 of 20 SQLCC rules** tested (65%) — 7 are SQL Server-only (n/a for Snowflake)
 - **26 of 26 SQLFluff rules** tested (100%)
