@@ -1,6 +1,7 @@
 -- =============================================================================
 -- RULE 25: Dynamic Tables must specify TARGET_LAG
--- Regex: (?i)^(?!\s*--)\s*CREATE\s+(OR\s+REPLACE\s+)?DYNAMIC\s+TABLE\s+(?!.*\bTARGET_LAG\b)
+-- Single-line regex: (?i)^(?!\s*--)\s*CREATE\s+(OR\s+REPLACE\s+)?DYNAMIC\s+TABLE\s+(?!.*\bTARGET_LAG\b)
+-- Multiline regex: (?is)^(?:CREATE\s+(?:OR\s+REPLACE\s+)?|DEFINE\s+)DYNAMIC\s+TABLE\s+\S+.*?(?:AS\s+SELECT|;)(?!.*\bTARGET_LAG\b)
 -- =============================================================================
 
 -- POSITIVE TESTS (compliant - must NOT trigger rule)
@@ -14,7 +15,10 @@ CREATE OR REPLACE DYNAMIC TABLE IOTI_RAW_DT_DOWNSTREAM
     WAREHOUSE = MD_TEST_WH
 AS SELECT 1 AS COL;
 
--- NEGATIVE TESTS (non-compliant - MUST trigger rule)
+-- NEGATIVE TESTS single-line (triggers SimpleRegexMatchCheck)
+CREATE OR REPLACE DYNAMIC TABLE IOTI_RAW_DT_INLINE_NO_LAG WAREHOUSE = MD_TEST_WH AS SELECT 1;
+
+-- NEGATIVE TESTS multiline (triggers MultilineTextMatchCheck)
 CREATE OR REPLACE DYNAMIC TABLE IOTI_RAW_DT_NO_LAG
     WAREHOUSE = MD_TEST_WH
 AS SELECT 1 AS COL;
