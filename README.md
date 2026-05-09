@@ -1,2 +1,0 @@
-# project-one
-[![Update Local Repository and Run Sonar Scanner](https://github.com/zBrainiac/project-one/actions/workflows/update-local-repo.yml/badge.svg)](https://github.com/zBrainiac/project-one/actions/workflows/update-local-repo.yml)
