@@ -4,9 +4,8 @@
 -- =============================================================================
 
 -- POSITIVE TESTS (compliant - must NOT trigger rule)
-CREATE SCHEMA IF NOT EXISTS ONE_RAW_v001;
-CREATE OR REPLACE SCHEMA ONE_RAW_v001;
+CREATE SCHEMA IF NOT EXISTS RAW_V001;
+CREATE OR REPLACE SCHEMA RAW_V001;
 
--- NEGATIVE TESTS (non-compliant - MUST trigger rule 01: missing IF NOT EXISTS)
--- Also triggers version suffix rule: uppercase _V001 instead of lowercase _v001
-CREATE SCHEMA ONE_RAW_V001;
+-- NEGATIVE TESTS (non-compliant - MUST trigger rule)
+CREATE SCHEMA RAW_V001;
