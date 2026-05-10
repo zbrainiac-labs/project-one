@@ -15,3 +15,10 @@ DEFINE TABLE {{db}}.{{schema}}.IOTI_RAW_TB_SENSOR_DATA (
 )
 CHANGE_TRACKING = TRUE
 COMMENT = 'Raw IOT sensor readings with 12 sensor channels';
+
+DEFINE TABLE {{db}}.{{schema}}.ONEO_RAW_TB_WH_SIZE_RECOMMENDATION (
+    MIN_BYTES NUMBER(38,0),
+    MAX_BYTES NUMBER(38,0),
+    WH_SIZE VARCHAR(20)
+)
+COMMENT = 'Warehouse size recommendation lookup table';
