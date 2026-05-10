@@ -1,6 +1,6 @@
 # SonarQube Issues Report — project-one
 
-**Total Issues: 580** | **Sources: `.sql`, `.json`, `.sqltest` only**  
+**Total Issues: 578** | **Sources: `.sql`, `.json`, `.sqltest` only**  
 **Scan Date: 2026-05-10 (clean scan — `.md`/`.csv`/`.yml` excluded, SQLFluff included)**
 
 ---
@@ -9,14 +9,14 @@
 
 | Category | Rules Available | Rules Triggered | Issues |
 |----------|---------------|-----------------|--------|
-| SonarQube Text Plugin (txt:) | 43 custom + 5 templates | 42 | 233 |
+| SonarQube Text Plugin (txt:) | 43 custom + 5 templates | 42 | 231 |
 | SQL Code Checker (SQLCC:) | 20 | 11 | 57 |
 | SQLFluff (external) | 36 | 36 | 290 |
-| **Total** | **104** | **89** | **580** |
+| **Total** | **104** | **89** | **578** |
 
 ---
 
-## Community Text Plugin Rules (txt:) — 43 custom rules, 233 issues
+## Community Text Plugin Rules (txt:) — 43 custom rules, 231 issues
 
 | # | Rule Key | Description | Severity | Issues | Tested |
 |---|----------|-------------|----------|--------|--------|
@@ -59,7 +59,7 @@
 | 37 | txt:Implicit_alias_missing_AS | Implicit alias (missing AS) | MINOR | 2 | ✓ `rule_31` |
 | 38 | txt:Table_names_must_begin_with...underscore | Table begins with 4-char domain+component code | MAJOR | 12 | ✓ `rule_10` |
 | **Multiline Rules** | | | | | |
-| 39 | txt:DEFINE_must_have_COMMENT_multiline | DEFINE must include COMMENT (multiline) | MAJOR | 3 | ✓ `rule_38` |
+| 39 | txt:DEFINE_must_have_COMMENT_multiline | DEFINE must include COMMENT (multiline) | MAJOR | 1 | ✓ `rule_38` |
 | 40 | txt:Dynamic_Table_must_have_TARGET_LAG_multiline | DT TARGET_LAG (multiline) | CRITICAL | 3 | ✓ `rule_25` |
 | 41 | txt:Disallow_ORDER_BY_in_views_multiline | ORDER BY in views (multiline) | MAJOR | 3 | ✓ `rule_23` |
 | 42 | txt:Task_must_be_SERVERLESS_multiline | Task SERVERLESS (multiline) | MAJOR | 3 | ✓ `rule_35` |
