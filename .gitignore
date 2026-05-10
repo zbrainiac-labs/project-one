@@ -1,1 +1,4 @@
 .DS_Store
+rescan.sh
+sonarqube_issues_report.md
+sonarqube_testcase_validation.md
