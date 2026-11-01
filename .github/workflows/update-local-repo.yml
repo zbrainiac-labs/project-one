@@ -14,4 +14,5 @@ jobs:
       DCM_PROJECT_IDENTIFIER: ONE_DEV.ONE_DCM.PROJECT_ONE
       DCM_TARGET: DEV
       CLONE_PER_BUILD: true
+      USE_OIDC: false
     secrets: inherit
